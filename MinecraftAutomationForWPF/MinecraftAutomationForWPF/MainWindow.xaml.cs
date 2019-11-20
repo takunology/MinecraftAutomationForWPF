@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,19 +21,21 @@ namespace MinecraftAutomationForWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        AutomationInstance Automation = new AutomationInstance();
-
         private void Button_North(object sender, RoutedEventArgs e)
-        {
+        {      
             try
             {
-                Task.Run(() => { Automation.MOVE.ButtonBitMove(3); });
-                LOG.Text = Automation.MOVE.LogMessage;
+                Task.Run(() => {
+                    AutomationInstance Automation = new AutomationInstance();
+                    Automation.MOVE.ButtonBitMove(3);
+                });
+
             }
             catch (Exception ex){ LOG.Text = ex.ToString(); }
         }
@@ -41,8 +44,10 @@ namespace MinecraftAutomationForWPF
         {
             try
             {
-                Task.Run(() => { Automation.MOVE.ButtonBitMove(2); });
-                LOG.Text = Automation.MOVE.LogMessage;
+                Task.Run(() => {
+                    AutomationInstance Automation = new AutomationInstance();
+                    Automation.MOVE.ButtonBitMove(2);
+                });                
             }
             catch (Exception ex) { LOG.Text = ex.ToString(); }
         }
@@ -51,8 +56,10 @@ namespace MinecraftAutomationForWPF
         {
             try
             {
-                Task.Run(() => { Automation.MOVE.ButtonBitMove(0); });
-                LOG.Text = Automation.MOVE.LogMessage;
+                Task.Run(() => {
+                    AutomationInstance Automation = new AutomationInstance();
+                    Automation.MOVE.ButtonBitMove(0);
+                });
             }
             catch (Exception ex) { LOG.Text = ex.ToString(); }
         }
@@ -61,8 +68,10 @@ namespace MinecraftAutomationForWPF
         {
             try
             {
-                Task.Run(() => { Automation.MOVE.ButtonBitMove(1); });
-                LOG.Text = Automation.MOVE.LogMessage;
+                Task.Run(() => {
+                    AutomationInstance Automation = new AutomationInstance();
+                    Automation.MOVE.ButtonBitMove(1);
+                });
             }
             catch (Exception ex) { LOG.Text = ex.ToString(); }
         }
@@ -71,8 +80,10 @@ namespace MinecraftAutomationForWPF
         {
             try
             {
-                Task.Run(() => { Automation.MOVE.Position(); });
-                LOG.Text = Automation.MOVE.LogMessage;
+                Task.Run(() => {
+                    AutomationInstance Automation = new AutomationInstance();
+                    Automation.MOVE.Position();
+                });
             }
             catch (Exception ex) { LOG.Text = ex.ToString(); }
         }
